@@ -1,0 +1,29 @@
+<ion-content>
+  <div class="sub_categoria">
+	<ion-toolbar>
+	  <ion-segment scrollable (ionChange)="segmentChanged($event)" value="0">
+        <ion-segment-button value="0" style=" min-height:30px;">
+		  <img src="assets/icones_provisorios/icon_pneu.jpg"/>
+		  <ion-label>
+			Pneu
+          </ion-label>
+        </ion-segment-button>
+		<ion-segment-button value="1" >
+          <ion-label>
+            Mecanica
+          </ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="2" >
+          <ion-label>
+            Borracharia
+          </ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="3" >
+          <ion-label>
+            Funeraria
+          </ion-label>
+        </ion-segment-button>
+	  </ion-segment>
+	</ion-toolbar>	  
+  </div>
+</ion-content>

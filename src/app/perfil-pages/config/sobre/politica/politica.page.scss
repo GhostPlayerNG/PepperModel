@@ -1,0 +1,41 @@
+.conteudo{
+    --ion-background-color: #363435;
+    --ion-text-color: #f6f2f1;
+  }
+  
+  ion-button{
+    background-color: #fdb302;
+    border-color: hsl(60, 8%, 3%);
+    color: #363435;
+  }
+  
+  ion-icon{
+    margin-right: 8px;
+  }
+  .titulo{
+    text-align: -webkit-center;
+    font-size: medium;
+    font-weight: bold;
+    padding: 10px;
+  }
+  .titulo ion-title{
+      padding-top: 20px;
+    color: red;
+  }
+  .att{
+      font-weight: bold;
+      padding: 10px;
+      padding-bottom: 20px;
+  }
+  .paragrafo{
+    padding: 10px;
+  }
+  .texto {
+    text-align: justify;
+    font-size: smaller;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+    .texto ion-title{
+    color: red;
+}

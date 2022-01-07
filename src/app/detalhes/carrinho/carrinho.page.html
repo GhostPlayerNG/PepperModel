@@ -1,0 +1,40 @@
+<ion-content class="conteudo">
+  <ion-fab vertical="top" horizontal="start" slot="fixed">
+    <ion-fab-button (click)="voltarInicio()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+    <ion-img *ngIf="produto?.urlImg" [src]="produto.urlImg"></ion-img>
+  <!--
+  <ion-img
+    [src]="'https://s2.glbimg.com/cuwJDWABYcstdo7va4XbrK8H1Tc=/0x0:615x390/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_b3309463db95468aa275bd532137e960/internal_photos/bs/2021/F/E/NoF3FPQeywcforRuz9GA/madero.jpg'">
+  </ion-img>
+  -->
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        {{nome}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        {{descricao}}
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        R$ {{preco}} X {{qtd}} = R$ {{valorTotal}}
+      </ion-label>
+    </ion-item>
+    <ion-item>     
+        <button (click)="subtrai()" class="btn_menos">
+          -
+        </button>
+         {{qtd}} 
+        <button (click)="adiciona()" class="btn_mais">
+          +
+        </button>   
+    </ion-item>
+  </ion-list>
+</ion-content>

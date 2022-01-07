@@ -1,0 +1,23 @@
+ion-content{
+  --background: #363435;
+}
+
+ion-card{
+  --ion-background-color: #363435;
+}
+
+ion-button{
+  background: #fdb302;
+  color: #363435;
+  font-weight: bold;
+}
+
+.input{
+  --background: white;
+}
+
+.center{
+  height: 120vh;
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,54 @@
+.conteudo {
+  background-color: #363435;
+  color: #F6F2F1;
+  padding-bottom: 16px;
+}
+.preco{
+  text-align: left;
+  font-weight: bold;
+  color: #fdb302;
+}
+ion-searchbar {
+  color: #4F4F4F;
+}
+
+ion-card-header {
+  background-color: #fdb302;
+}
+
+ion-content{
+  --ion-background-color: #363435;
+}
+
+ion-segment-button{
+  --color-checked: #fdb302;
+  font-weight: bold;
+}
+
+.card{
+  padding-bottom: 0px;
+  text-align: left;
+  --ion-background-color: white;
+}
+
+.segbtn{
+  --ion-tab-bar-background: #363435;
+  --ion-tab-bar-color: #f6f2f1;
+  --ion-tab-bar-color-selected: #fdb302;
+}
+
+.nomeProduto{
+  color:  rgb(22, 22, 22);
+  font-weight: bold;
+}
+
+.labelProduto{
+  padding-left: 16px;
+}
+
+.imagemProduto{
+  width: 64px;
+  height: 64px;
+  position: relative;
+  left: 0px;
+}

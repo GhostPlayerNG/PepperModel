@@ -1,0 +1,137 @@
+<ion-toolbar color="Tint" class="conteudo">
+	<ion-searchbar placeholder="pesquisar" showCancelButton="focus" animated color="#363435"></ion-searchbar>
+	<!--
+	<ion-searchbar placeholder="pesquisar" [(ngModel)]="procura" showCancelButton="focus" animated color="#363435"></ion-searchbar>
+	  <ion-segment mode="md"  [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
+	  -->
+	<ion-segment value="0" scrollable (ionChange)="segmentChanged($event)">
+		<ion-segment-button value="0" style=" min-height:30px;">
+			<ion-label>
+				Hambúrguers
+			</ion-label>
+		</ion-segment-button>
+		<ion-segment-button value="1">
+			<ion-label>
+				Pizzas
+			</ion-label>
+		</ion-segment-button>
+		<ion-segment-button value="2">
+			<ion-label>
+				Bebidas
+			</ion-label>
+		</ion-segment-button>
+		<ion-segment-button value="3">
+			<ion-label>
+				Todos
+			</ion-label>
+		</ion-segment-button>
+	</ion-segment>
+</ion-toolbar>
+
+<ion-content>
+	<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content>
+
+		</ion-refresher-content>
+	</ion-refresher>
+	<!--<ion-card *ngFor="let p of produtos | filter : procura" class="card" (click)="exibirDetalhes(p.id)" > -->
+
+	<div *ngIf="selectTab === '0'">
+		<div *ngFor="let p of produtos">
+			<ion-card *ngIf="p.categoria === 'burguer'" class="card" (click)="exibirDetalhes(p.id)">
+				<ion-card-header>
+					<b>
+						<ion-card-title class="nomeProduto">{{p.nome}}</ion-card-title>
+					</b>
+				</ion-card-header>
+				<ion-card-content>
+					<ion-list>
+						<ion-item lines="none">
+							<ion-avatar class="imagemProduto">
+								<ion-img [src]="p.url"></ion-img>
+							</ion-avatar>
+							<ion-label class="labelProduto">
+								<p>{{p.descricao}}</p>
+								<ion-label class="preco">R$ {{p.preco.toFixed(2)}}</ion-label>
+							</ion-label>
+						</ion-item>
+					</ion-list>
+				</ion-card-content>
+			</ion-card>
+		</div>
+	</div>
+	<div *ngIf="selectTab === '1'">
+		<div *ngFor="let p of produtos">
+			<ion-card *ngIf="p.categoria === 'pizza'" class="card" (click)="exibirDetalhes(p.id)">
+				<ion-card-header>
+					<b>
+						<ion-card-title class="nomeProduto">{{p.nome}}</ion-card-title>
+					</b>
+				</ion-card-header>
+				<ion-card-content>
+					<ion-list>
+						<ion-item lines="none">
+							<ion-avatar class="imagemProduto">
+								<ion-img [src]="p.url"></ion-img>
+							</ion-avatar>
+							<ion-label class="labelProduto">
+								<p>{{p.descricao}}</p>
+								<ion-label class="preco">R$ {{p.preco.toFixed(2)}}</ion-label>
+							</ion-label>
+						</ion-item>
+					</ion-list>
+				</ion-card-content>
+			</ion-card>
+		</div>
+	</div>
+	<div *ngIf="selectTab === '2'">
+		<div *ngFor="let p of produtos">
+			<ion-card *ngIf="p.categoria === 'bebida'" class="card" (click)="exibirDetalhes(p.id)">
+				<ion-card-header>
+					<b>
+						<ion-card-title class="nomeProduto">{{p.nome}}</ion-card-title>
+					</b>
+				</ion-card-header>
+				<ion-card-content>
+					<ion-list>
+						<ion-item lines="none">
+							<ion-avatar class="imagemProduto">
+								<ion-img [src]="p.url"></ion-img>
+							</ion-avatar>
+							<ion-label class="labelProduto">
+								<p>{{p.descricao}}</p>
+								<ion-label class="preco">R$ {{p.preco.toFixed(2)}}</ion-label>
+							</ion-label>
+						</ion-item>
+					</ion-list>
+				</ion-card-content>
+			</ion-card>
+		</div>
+	</div>
+
+	<div *ngIf="selectTab === '3'">
+		<div *ngFor="let p of produtos">
+			<ion-card class="card" (click)="exibirDetalhes(p.id)">
+				<ion-card-header>
+					<b>
+						<ion-card-title class="nomeProduto">{{p.nome}}</ion-card-title>
+					</b>
+				</ion-card-header>
+				<ion-card-content>
+					<ion-list>
+						<ion-item lines="none">
+							<ion-avatar class="imagemProduto">
+								<ion-img [src]="p.url"></ion-img>
+							</ion-avatar>
+							<ion-label class="labelProduto">
+								<p>{{p.descricao}}</p>
+								<ion-label class="preco">R$ {{p.preco.toFixed(2)}}</ion-label>
+							</ion-label>
+						</ion-item>
+					</ion-list>
+				</ion-card-content>
+			</ion-card>
+		</div>
+	</div>
+
+</ion-content>

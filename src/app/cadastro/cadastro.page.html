@@ -1,0 +1,40 @@
+<ion-content [fullscreen]="true">
+  <div class="center">
+  <ion-card>
+    <br><br>
+    <img src="assets/exburguer.png" alt="Logo">
+    <br><br>
+    <ion-item class="input" >
+      <ion-label position="floating">Nome Completo</ion-label>
+      <ion-input [(ngModel)]="nome" >
+      </ion-input>
+    </ion-item>
+    <ion-item class="input" >
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="email" >
+      </ion-input>
+    </ion-item>
+    <ion-item class="input" >
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="senha">
+      </ion-input>
+    </ion-item>
+    <ion-item class="input" >
+      <ion-label position="floating">Data de Nascimento</ion-label>
+      <ion-input type="date" [(ngModel)]="dt_nascimento">
+      </ion-input>
+    </ion-item>
+    <ion-item class="input" >
+      <ion-label position="floating">CPF</ion-label>
+      <ion-input [(ngModel)]="cpf">
+      </ion-input>
+    </ion-item>
+    <ion-item class="input" >
+      <ion-label position="floating">Número do Celular</ion-label>
+      <ion-input [(ngModel)]="nr_celular">
+      </ion-input>
+    </ion-item>    
+    <ion-button expand="full" color="#fbde3c" (click)="cadastrar()" >Cadastrar</ion-button>
+  </ion-card>
+</div>
+</ion-content>

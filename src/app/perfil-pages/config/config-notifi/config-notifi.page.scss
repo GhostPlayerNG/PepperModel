@@ -1,0 +1,54 @@
+.conteudo{
+    --ion-background-color: #363435;
+    --ion-text-color: #f6f2f1;
+  }
+  
+  ion-button{
+    background-color: #fdb302;
+    border-color: #070706;
+    color: #363435;
+  }
+  
+  ion-icon{
+    margin-right: 8px;
+  }
+  .coment{
+    text-align: -webkit-center;
+    font-size: medium;
+    font-weight: bold;
+  }
+
+  ion-item ion-toggle {
+    --background: #f6f2f1;
+    --background-checked: #fdb302;
+  
+    --handle-background: #fdb302;
+    --handle-background-checked: #f6f2f1;
+  }
+  .msg_box{
+    background: grey;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+  }
+
+  /*
+  .teste{
+    --ion-background-color: #fdb302;
+    --ion-text-color: black;
+  }
+    
+  .teste ion-toggle {
+    --background: #363435;
+    --background-checked: #f6f2f1;
+  
+    --handle-background: #f6f2f1;
+    --handle-background-checked: #363435;
+  }
+  .teste2{
+    --ion-background-color: #fdb302;
+    --ion-text-color: black;
+  }
+*/
+
+  

@@ -1,0 +1,41 @@
+<ion-fab vertical="top" horizontal="start" slot="fixed">
+  <ion-fab-button (click)="voltarInicio()">
+    <ion-icon name="arrow-back"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-content class="conteudo">
+  <div *ngFor="let p of produtos">
+    <div *ngIf="id == p.id">
+	  <ion-img [src]="p.url"></ion-img>
+	  <ion-list>
+		<ion-item>
+		  <ion-label class="descricaoProduto">
+			{{p.nome}}
+		  </ion-label>
+		</ion-item>
+		<ion-item>
+		  <ion-label class="descricaoProduto">
+			{{p.descricao}}
+		  </ion-label>
+		</ion-item>
+		<ion-item>
+		  <ion-label class="preco">
+			A partir de <b>R$ {{p.preco}}</b>
+		  </ion-label>
+		</ion-item>
+	  </ion-list>
+    </div>
+  </div>
+</ion-content>
+<div class="footer">
+  <ion-label class="adicionar">
+    <ion-button size="small" (click)="subtrai()">
+      <ion-icon name="remove-outline"></ion-icon>
+    </ion-button>
+    <ion-label class="a"> {{qtde}} </ion-label>
+    <ion-button size="small" (click)="adiciona()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-button>
+  </ion-label>
+  <ion-button class="btnAdd" (click)="addCarrinhoPedido()">Adicionar R$ {{strTotal}}</ion-button>
+</div>
