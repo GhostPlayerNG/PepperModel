@@ -1,4 +1,4 @@
-.conteudo{
+ion-content{
   --ion-background-color: #363435;
   --ion-text-color: #f6f2f1;
 }
@@ -6,4 +6,21 @@
 ion-icon{
   margin-top: 90px;
   color:#f6f2f1;
+}
+ion-col{
+  text-align: justify;
+}
+ion-label{
+  font-weight: bold;
+}
+.idPedidos{
+  --ion-text-color: ;
+}
+#botao{
+  text-align: center;
+}
+
+ion-card{
+  --ion-background-color: #fff;
+  --ion-text-color: black;
 }

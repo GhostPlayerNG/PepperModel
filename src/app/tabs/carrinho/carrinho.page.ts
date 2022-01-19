@@ -15,6 +15,30 @@ export class CarrinhoPage implements OnInit {
   pedidos: Pedidos[];
   qtdNumber: number;
   valorTotalNumber: number;
+  total: number;
+  
+  itenscarrinho = [
+    {
+	  idprod: 1,
+	  qtditem: 1,
+	  nome: 'X-Salada',
+	  descricao: 'Pão, hamburguer, queijo, alface, tomate e molho artesanal',
+	  descricaobreve: 'Hamburguer na chapa com molho artesanal',
+	  url: 'assets/produtos/x_salada.jpg',
+	  preco: 15.99,
+	  categoria: 'burguer'
+	},
+	{
+	  idprod: 7,
+	  qtditem: 2,
+	  nome: 'Coca-Cola',
+	  descricao: 'Coca-Cola Lata 350ml',
+	  descricaobreve: 'Coca-Cola Lata 350ml',
+	  url: 'assets/produtos/coca_cola.jpg',
+	  preco: 5.00,
+	  categoria: 'bebida'
+	}
+  ];
 
   constructor(private pedidosService: PedidosService, private route: Router) {
 
@@ -29,6 +53,13 @@ export class CarrinhoPage implements OnInit {
     } catch (e) {
       console.log(e)
     }
+	try {
+		this.total = (15.99*1)+(5.00*2)
+		this.total = Number.parseFloat(this.total.toFixed(2))
+	} catch (e) {
+	  console.log(e)
+	}
+	
   }
 
   doRefresh(event) {
