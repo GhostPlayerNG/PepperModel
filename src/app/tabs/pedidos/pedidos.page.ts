@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pedidos',
@@ -68,9 +70,14 @@ export class PedidosPage implements OnInit {
 	}
   ];
   
-  constructor() { }
+  constructor(public nav: NavController, private route: Router) { }
 
   ngOnInit() {
+  }
+  
+   exibirDetalhes(id: String){
+    this.route.navigate(['pedido', id]);
+    this.route.dispose
   }
 
 }
