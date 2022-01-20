@@ -75,6 +75,14 @@ export class CarrinhoPage implements OnInit {
     this.route.navigate(['detalhesCarrinho', id]);
     this.route.dispose
   }
+  /*
+  exibirDetalhes(id: String) {
+  let caminho = 'detalhesCarrinho' + id
+  this.navCtrl.push(caminho,{
+  name: this.nome
+ });
+}
+*/
 
 
 
