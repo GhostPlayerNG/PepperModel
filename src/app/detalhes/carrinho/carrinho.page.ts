@@ -29,6 +29,11 @@ export class CarrinhoPage implements OnInit {
 
   constructor(public nav: NavController, private route: Router, private activatedRoute: ActivatedRoute, private produtoService: ProdutosService, private pedidosService: PedidosService, public toastController: ToastController) {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
+	/*//let id = navParams.get('id');
+	let name = navParams.get('name');
+	//console.log(id);
+	console.log(name);
+	*/
   }
 
 
