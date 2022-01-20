@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavController, ToastController } from '@ionic/angular';
 import { Pedidos, PedidosService } from 'src/app/service/pedidos.service';
-import { Produtos, ProdutosService } from 'src/app/service/produtos.service';
+import { Produtos } from 'src/app/service/produtos.service';
 
 @Component({
   selector: 'app-produto',
@@ -20,9 +20,19 @@ export class ProdutoPage implements OnInit {
   preco: string;
   total: number;
   strTotal: string;
+  prod: [
+	  id: number,
+      nome: string,
+      descricao: string,
+      descricaobreve: string,
+      url: string,
+      preco: number,
+	  categoria: string
+    ];
+	filtered: Object;
 
-  obj: Object[] = []
-  
+  obj: Object[] = [];
+
   produtos = [
     {
 	  id: 1,
@@ -109,10 +119,11 @@ export class ProdutoPage implements OnInit {
 
 
 
-  @Input() url: string
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  @Input() url: string;
 
-  constructor(public nav: NavController, private route: Router, private activatedRoute: ActivatedRoute, private produtoService: ProdutosService, private pedidosService: PedidosService, public toastController: ToastController) {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+  constructor(public nav: NavController, private route: Router, private aRoute: ActivatedRoute, private pedServ: PedidosService, public toastC: ToastController) {
+    this.id = this.aRoute.snapshot.paramMap.get('id');
   }
 
   ngOnInit() {
@@ -133,70 +144,83 @@ export class ProdutoPage implements OnInit {
     } catch (e) {
       console.log(e)
     }*/
+	try{
+		//filtra um produto da lista de produtos pelo id recebido e o guarda em um objeto
+		this.filtered = this.produtos.filter((prod) => prod.id === Number.parseInt(this.id, 10));
+		console.log(this.filtered);
+		//this.nome = this.filtered.filter((prod) => prod.nome === 'nome')
+    console.log(this.filtered.hasOwnProperty(this.nome));
+    console.log(this.filtered.hasOwnProperty('nome'));
+
+	}catch(e){
+		console.log(e);
+	}
   }
 
   voltarInicio() {
     this.route.navigateByUrl('home');
-    this.route.dispose
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    this.route.dispose;
   }
 
   adiciona() {
-    this.qtde++
-    this.total = Number.parseFloat(this.preco) * this.qtde
-    this.strTotal = this.total.toFixed(2)
+    this.qtde++;
+    this.total = Number.parseFloat(this.preco) * this.qtde;
+    this.strTotal = this.total.toFixed(2);
 
   }
   subtrai() {
     if (this.qtde > 0) {
-      this.qtde--
-      this.total = (Number.parseFloat(this.preco) * this.qtde)
-      this.strTotal = this.total.toFixed(2)
+      this.qtde--;
+      this.total = (Number.parseFloat(this.preco) * this.qtde);
+      this.strTotal = this.total.toFixed(2);
     }
   }
 
   addCarrinho(){
 
-    this.pedido = new Pedidos
+    this.pedido = new Pedidos();
 
-    console.log("ID do produto: " + this.id)
-    this.pedido.qtde = this.qtde.toString()
-    this.pedido.valorTotal = this.strTotal
-    this.pedido.status = false
+    console.log('ID do produto: ' + this.id);
+    this.pedido.qtde = this.qtde.toString();
+    this.pedido.valorTotal = this.strTotal;
+    this.pedido.status = false;
 
-    console.log('PEDIDOS: ')
-    console.log(this.pedido)
+    console.log('PEDIDOS: ');
+    console.log(this.pedido);
 
-    this.pedidosService.create(this.pedido).subscribe(pedido => {
-      console.log(pedido)
-    })
+    this.pedServ.create(this.pedido).subscribe(pedido => {
+      console.log(pedido);
+    });
   }
 
   addCarrinhoPedido(){
-    this.pedido = new Pedidos
+    this.pedido = new Pedidos();
 
-    this.pedido.qtde = this.qtde.toString()
-    this.pedido.valorTotal = this.strTotal
-    this.pedido.status = false
+    this.pedido.qtde = this.qtde.toString();
+    this.pedido.valorTotal = this.strTotal;
+    this.pedido.status = false;
 
-    this.pedido.produtos = this.produto
+    this.pedido.produtos = this.produto;
 
 
 
-    this.pedidosService.create(this.pedido).subscribe(pedido => {
-      console.log(pedido)
-    })
+    this.pedServ.create(this.pedido).subscribe(pedido => {
+      console.log(pedido);
+    });
 
-    this.route.navigateByUrl('home')
-    this.route.dispose
+    this.route.navigateByUrl('home');
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    this.route.dispose;
 
     this.presentToast('Produto adicionado ao carrinho com sucesso', 'success', 1300);
   }
 
   async presentToast(texto: string, cor: string, duration: number) {
-    const toast = await this.toastController.create({
+    const toast = await this.toastC.create({
       message: texto,
       color: cor,
-      duration: duration
+      duration
     });
     toast.present();
   }

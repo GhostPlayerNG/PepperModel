@@ -1,10 +1,10 @@
 <ion-fab vertical="top" horizontal="start" slot="fixed">
-  <ion-fab-button (click)="voltarInicio()">
+  <ion-fab-button fill="solid" color="danger" (click)="voltarInicio()">
     <ion-icon name="arrow-back"></ion-icon>
   </ion-fab-button>
 </ion-fab>
 <ion-content class="conteudo">
-  <div *ngFor="let p of produtos">
+  <div *ngFor="let p of filtered">
     <div *ngIf="id == p.id">
 	  <ion-img [src]="p.url"></ion-img>
 	  <ion-list>
@@ -29,13 +29,17 @@
 </ion-content>
 <div class="footer">
   <ion-label class="adicionar">
-    <ion-button size="small" (click)="subtrai()">
+	<ion-button *ngIf="qtde<2" disabled="true" color="danger" fill="clear" size="small" (click)="subtrai(i)" class="btnSubtrai">
+      <ion-icon name="remove-outline"></ion-icon>
+    </ion-button>
+    <ion-button *ngIf="qtde>1" color="danger" fill="clear" size="small" (click)="subtrai(i)" class="btnSubtrai">
       <ion-icon name="remove-outline"></ion-icon>
     </ion-button>
     <ion-label class="a"> {{qtde}} </ion-label>
-    <ion-button size="small" (click)="adiciona()">
+    <ion-button color="success" fill="clear" size="small" (click)="adiciona(i)">
       <ion-icon name="add-outline"></ion-icon>
     </ion-button>
+	<ion-label>R$ {{strTotal}}</ion-label>
   </ion-label>
-  <ion-button class="btnAdd" (click)="addCarrinhoPedido()">Adicionar R$ {{strTotal}}</ion-button>
+  <ion-button expand="block" size="large" fill="solid" shape="round" color="danger" (click)="addCarrinhoPedido()">Adicionar</ion-button>
 </div>
