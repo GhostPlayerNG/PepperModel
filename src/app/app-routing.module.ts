@@ -107,7 +107,11 @@ const routes: Routes = [
   {
     path: 'senha',
     loadChildren: () => import('./perfil-pages/seguranca/senha-add/senha-add.module').then( m => m.SenhaAddPageModule)
+  },  {
+    path: 'pedido/:id',
+    loadChildren: () => import('./detalhes/pedidos/pedidos.module').then( m => m.PedidosPageModule)
   }
+
 
 
 ];
