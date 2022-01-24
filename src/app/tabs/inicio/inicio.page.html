@@ -50,6 +50,11 @@
 							<ion-avatar class="imagemProduto">
 								<ion-img [src]="p.url"></ion-img>
 							</ion-avatar>
+							<!--
+							<ion-thumbnail slot="start">
+								<ion-img [src]="p.url"></ion-img>
+							</ion-thumbnail>
+							-->
 							<ion-label class="labelProduto">
 								<p>{{p.descricao}}</p>
 								<ion-label class="preco">R$ {{p.preco.toFixed(2)}}</ion-label>

@@ -14,6 +14,7 @@ export class PedidosPage implements OnInit {
 	  id: 1,
 	  datahora: '19/01/2022 15:19',
 	  status: 'confirmado',
+	  avaliacao: 5,
 	  total: 30.99,
 	  taxa: 10.00,
 	  itens: [
@@ -43,6 +44,7 @@ export class PedidosPage implements OnInit {
 	  id: 2,
 	  datahora: '19/01/2022 15:19',
 	  status: 'cancelado',
+	  avaliacao: 3,
 	  total: 35.99,
 	  taxa: 10.00,
 	  itens: [
