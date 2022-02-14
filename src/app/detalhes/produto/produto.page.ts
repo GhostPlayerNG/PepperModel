@@ -122,6 +122,7 @@ export class ProdutoPage implements OnInit {
   // eslint-disable-next-line @typescript-eslint/member-ordering
   @Input() url: string;
 
+  // eslint-disable-next-line max-len
   constructor(public nav: NavController, private route: Router, private aRoute: ActivatedRoute, private pedServ: PedidosService, public toastC: ToastController) {
     this.id = this.aRoute.snapshot.paramMap.get('id');
   }
