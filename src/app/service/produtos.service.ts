@@ -3,13 +3,18 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 export class Produtos{
-  public id?: string;
+  public id?: number;
   public nome: string;
   public preco: string;
   public urlImg: string;
   public descricao: string;
-  public descricaoBreve: string;
   public categoria: string;
+}
+
+export class ItensCarrinho{
+	public id: number;
+	public qtditem: string;
+	public produto: Produtos;
 }
 
 @Injectable({

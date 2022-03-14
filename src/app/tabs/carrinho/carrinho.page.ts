@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pedidos, PedidosService } from 'src/app/service/pedidos.service';
-import { Produtos, ProdutosService } from 'src/app/service/produtos.service';
+import { ItensCarrinho, Produtos, ProdutosService } from 'src/app/service/produtos.service';
 
 @Component({
   selector: 'app-carrinho',
@@ -13,30 +13,33 @@ import { Produtos, ProdutosService } from 'src/app/service/produtos.service';
 export class CarrinhoPage implements OnInit {
 
   pedidos: Pedidos[];
-  qtdNumber: number;
   valorTotalNumber: number;
-  total: number;
+  total: string;
   
-  itenscarrinho = [
+  itenscarrinho: ItensCarrinho[] = [
     {
-	  idprod: 1,
-	  qtditem: 1,
-	  nome: 'X-Salada',
-	  descricao: 'Pão, hamburguer, queijo, alface, tomate e molho artesanal',
-	  descricaobreve: 'Hamburguer na chapa com molho artesanal',
-	  url: 'assets/produtos/x_salada.jpg',
-	  preco: 15.99,
-	  categoria: 'burguer'
+		id: 1,
+		qtditem: '1',
+		produto: {
+			id: 1,
+			nome: 'X-Salada',
+			descricao: 'Pão, hamburguer, queijo, alface, tomate e molho artesanal',
+			urlImg: 'assets/produtos/x_salada.jpg',
+			preco: '15.99',
+			categoria: 'burguer'
+		}
 	},
 	{
-	  idprod: 7,
-	  qtditem: 2,
-	  nome: 'Coca-Cola',
-	  descricao: 'Coca-Cola Lata 350ml',
-	  descricaobreve: 'Coca-Cola Lata 350ml',
-	  url: 'assets/produtos/coca_cola.jpg',
-	  preco: 5.00,
-	  categoria: 'bebida'
+		id: 2,
+		qtditem: '2',
+		produto:{
+			id: 7,
+			nome: 'Coca-Cola',
+			descricao: 'Coca-Cola Lata 350ml',
+			urlImg: 'assets/produtos/coca_cola.jpg',
+			preco: '5.00',
+			categoria: 'bebida'
+		}
 	}
   ];
 
@@ -45,17 +48,24 @@ export class CarrinhoPage implements OnInit {
   }
 
   ngOnInit() {
-    try {
+    /*
+	try {
       this.pedidosService.read().subscribe(pedidoSub => {
         this.pedidos = pedidoSub;
       })
 
     } catch (e) {
       console.log(e)
-    }
+    }*/
 	try {
-		this.total = (15.99*1)+(5.00*2)
-		this.total = Number.parseFloat(this.total.toFixed(2))
+		var x = 0;
+		this.total = '0';
+		this.valorTotalNumber = 0;
+		while(x<this.itenscarrinho.length){
+			this.valorTotalNumber = this.valorTotalNumber + (Number.parseFloat(this.itenscarrinho[x].produto.preco) * Number.parseInt(this.itenscarrinho[x].qtditem));
+			x = x+1;
+		}
+		this.total = this.valorTotalNumber.toFixed(2);
 	} catch (e) {
 	  console.log(e)
 	}
@@ -83,30 +93,25 @@ export class CarrinhoPage implements OnInit {
  });
 }
 */
-
-
-
   adiciona(i: number) {
-    this.qtdNumber = Number.parseInt(this.pedidos[i].qtde)
-    this.qtdNumber++
-    this.pedidos[i].qtde = this.qtdNumber.toString()
-    this.valorTotalNumber = Number.parseFloat(this.pedidos[i].produtos.preco) * this.qtdNumber
-    this.pedidos[i].valorTotal = this.valorTotalNumber.toFixed(2)
+	this.itenscarrinho[i].qtditem = (Number.parseInt(this.itenscarrinho[i].qtditem) +1).toString();
+	this.valorTotalNumber = this.valorTotalNumber + Number.parseFloat(this.itenscarrinho[i].produto.preco);
+    this.total = this.valorTotalNumber.toFixed(2)
   }
 
   subtrai(i: number) {
-    if (this.qtdNumber > 0) {
-      this.qtdNumber = Number.parseInt(this.pedidos[i].qtde)
-      this.qtdNumber--
-      this.pedidos[i].qtde = this.qtdNumber.toString()
-      this.valorTotalNumber = Number.parseFloat(this.pedidos[i].produtos.preco) * this.qtdNumber
-      this.pedidos[i].valorTotal = this.valorTotalNumber.toFixed(2)
+    if (Number.parseInt(this.itenscarrinho[i].qtditem) > 1) {
+      this.itenscarrinho[i].qtditem = (Number.parseInt(this.itenscarrinho[i].qtditem) -1).toString();
+	  this.valorTotalNumber = this.valorTotalNumber - Number.parseFloat(this.itenscarrinho[i].produto.preco);
+      this.total = this.valorTotalNumber.toFixed(2)
     }
   }
-
-
-
-  concluirPedido() { }
+  concluirPedido() { 
+	//this.pedidos = this.itenscarrinho;
+	console.log('Itens:')
+	console.log(this.itenscarrinho)
+	
+  }
 }
 
 

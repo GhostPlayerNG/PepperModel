@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Produtos } from './produtos.service';
+import { ItensCarrinho, Produtos } from './produtos.service';
 
 export class Pedidos{
   public id?: string;
@@ -9,6 +9,15 @@ export class Pedidos{
   public status: boolean;
   public valorTotal: string;
   public produtos: Produtos;
+}
+
+export class Pedido{
+	public id?: string;
+	public status: string;
+	public valorTotal: string;
+	public frete: string;
+	public cupom: string
+	public itens: ItensCarrinho[];
 }
 
 @Injectable({

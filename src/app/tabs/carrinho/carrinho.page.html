@@ -3,50 +3,18 @@
 		<ion-refresher-content>
 
 		</ion-refresher-content>
-	</ion-refresher>
-
-
-	<!--
-	<ion-list>
-		<ion-grid>
-			<ion-row *ngFor="let p of pedidos; let i = index">
-				<ion-col>
-					<ion-item>
-						<ion-avatar class="imagemProduto" (click)="exibirDetalhes(p.id)">
-							<ion-img [src]="p.produtos.urlImg"></ion-img>
-						</ion-avatar>
-						<ion-label class="labelProduto" (click)="exibirDetalhes(p.id)">
-							<p>{{p.produtos.nome}}</p>
-							<ion-label class="preco">R$ {{p.valorTotal}}</ion-label>
-						</ion-label>
-
-						<ion-button fill="clear" size="small" (click)="adiciona(i)" class="btnAdiciona">
-						 +
-						</ion-button>
-						{{p.qtde}}
-						<ion-button fill="clear" size="small" (click)="subtrai(i)" class="btnSubtrai">
-							-
-						</ion-button>
-
-
-					</ion-item>
-				</ion-col>
-			</ion-row>
-		</ion-grid>
-	</ion-list>
-	-->
-	
+	</ion-refresher>	
 	<ion-list>
 		<ion-grid>
 			<ion-row *ngFor="let p of itenscarrinho; let i = index">
 				<ion-col>
 					<ion-item>
-						<ion-avatar class="imagemProduto" (click)="exibirDetalhes(p.idprod)">
-							<ion-img [src]="p.url"></ion-img>
+						<ion-avatar class="imagemProduto" (click)="exibirDetalhes(p.id)">
+							<ion-img [src]="p.produto.urlImg"></ion-img>
 						</ion-avatar>
-						<ion-label class="labelProduto" (click)="exibirDetalhes(p.idprod)">
-							<p>{{p.nome}}</p>
-							<ion-label class="preco">R$ {{p.preco}}</ion-label>
+						<ion-label class="labelProduto" (click)="exibirDetalhes(p.id)">
+							<p>{{p.produto.nome}}</p>
+							<ion-label class="preco">R$ {{p.produto.preco}}</ion-label>
 						</ion-label>
 						<ion-button fill="clear" size="small" (click)="subtrai(i)" class="btnSubtrai">
 							-
@@ -73,7 +41,7 @@
 		</ion-row>
 		<ion-row>
 			<ion-col>
-				<ion-button expand="block" size="large" fill="solid" shape="round" color="danger">
+				<ion-button expand="block" size="large" fill="solid" shape="round" color="danger" (click)="concluirPedido()">
 					<ion-label>Finalizar compra</ion-label>
 				</ion-button>
 			</ion-col>

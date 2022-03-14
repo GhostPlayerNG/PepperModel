@@ -6,17 +6,15 @@
 <ion-content class="conteudo">
   <div *ngFor="let p of filtered">
     <div *ngIf="id == p.id">
-	  <ion-img [src]="p.url"></ion-img>
+	  <ion-img [src]="p.urlImg"></ion-img>
 	  <ion-list>
 		<ion-item>
 		  <ion-label class="descricaoProduto">
 			{{p.nome}}
 		  </ion-label>
 		</ion-item>
-		<ion-item>
-		  <ion-label class="descricaoProduto">
-			{{p.descricao}}
-		  </ion-label>
+		<ion-item class="descricaoProduto">
+		  {{p.descricao}}
 		</ion-item>
 		<ion-item>
 		  <ion-label class="preco">
