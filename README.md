@@ -1,5 +1,5 @@
 # PepperModel
- Aplicativo ionic para demonstração
+ <h1>Aplicativo ionic para fins demonstrativos.</h1>
+ <h3>Sem qualquer http request.</h3>
  
- Todas as funções independem de APIs e conexões com servidor.
  
