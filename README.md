@@ -1,7 +1,7 @@
 # PepperModel
- <h2>
+ <h3>
 	Aplicativo ionic para fins demonstrativos.
- </h2>
+ </h3>
  <h4>
 	Sem qualquer http request.
  </h4>
@@ -13,14 +13,17 @@
 		Instale npm, nodejs e angular cli
 	</li>
 	<li>
+		Baixe o projeto.
+	</li>
+	<li>
 		Abra o cmd e entre no diretorio deste projeto.
 	</li>
 	<li>
-		Executo o seguinte comando: 
-		<b>npm i</b>
+		Instale os modulos necessários com o seguinte comando: 
+		<b><i>npm i</i></b> ou <b><i>npm install</i></b>
 	</li>
 	<li>
-		Pra executar o projeto utilize o comando <b>ionic serve -l</b> no cmd.
+		Pra executar o projeto utilize o comando <b><i>ionic serve -l</i></b> ou <b><i>ionic serve lab</i></b> no cmd.
 	</li>
  </ul>
  
