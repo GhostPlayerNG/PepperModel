@@ -6,15 +6,15 @@
 	</ion-refresher>	
 	<ion-list>
 		<ion-grid>
-			<ion-row *ngFor="let p of itenscarrinho; let i = index">
+			<ion-row *ngFor="let p of itens; let i = index">
 				<ion-col>
 					<ion-item>
 						<ion-avatar class="imagemProduto" (click)="exibirDetalhes(p.id)">
-							<ion-img [src]="p.produto.urlImg"></ion-img>
+							<ion-img [src]="p.produto.url"></ion-img>
 						</ion-avatar>
 						<ion-label class="labelProduto" (click)="exibirDetalhes(p.id)">
 							<p>{{p.produto.nome}}</p>
-							<ion-label class="preco">R$ {{p.produto.preco}}</ion-label>
+							<ion-label class="preco">R$ {{p.produto.preco.toFixed(2)}}</ion-label>
 						</ion-label>
 						<ion-button fill="clear" size="small" (click)="subtrai(i)" class="btnSubtrai">
 							-

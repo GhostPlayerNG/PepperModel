@@ -1,12 +1,36 @@
 import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage-angular";
-import { Observable } from "rxjs";
+
 export class user {
     nome: string;
     email: string;
     senha: string;
     telefone: string;
     cpf: string;
+}
+
+export class produtos {
+    id?: number;
+    nome: string;
+    preco: number;
+    url: string;
+    descricao: string;
+    categoria: string;
+}
+
+export class itenscarrinho{
+	id: number;
+	qtditem: string;
+	produto: produtos;
+}
+
+export class pedido{
+	id?: string;
+	status: string;
+	valorTotal: string;
+	frete: string;
+	cupom: string
+	itens: itenscarrinho[];
 }
 
 @Injectable({
@@ -25,19 +49,20 @@ export class StorageService {
         //await this.storage.defineDriver(CordovaSQLiteDriver);
         const storage = await this.storage.create();
         this._storage = storage;
+        //this.clearStorage();
         console.log("DONE");
         //this.storageReady.next(true);
     }
 
     async getData() {
         console.log("GET DATA");
-        return this._storage.get("mydatabase") || [];
+        return this._storage.get("itens") || [];
     }
 
-    async addData(id: string) {
-        const storedData = await this.storage.get("mydatabase") || [];
-        storedData.push(id);
-        return this._storage.set("mydatabase", storedData);
+    async addData(item: itenscarrinho) {
+        const storedData = await this.storage.get("itens") || [];
+        storedData.push(item);
+        return this._storage.set("itens", storedData);
     }
 
     public get(key: string) {
@@ -57,9 +82,13 @@ export class StorageService {
         return JSON.parse(ret.value);
     }
 
-    async removeUsuario(index) {
-        const storedData = await this.storage.get("mydatabase") || [];
+    async remove(index, key: string) {
+        const storedData = await this.storage.get(key) || [];
         storedData.splice(index, 1);
-        return this.storage.set("mydatabase", storedData);
+        return this.storage.set(key, storedData);
     }
+
+    clearStorage() {
+        this.storage.clear();
+      }
 }
