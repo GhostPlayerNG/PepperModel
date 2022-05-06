@@ -1,16 +1,16 @@
-ion-content{
+ion-content {
   --background: #363435;
 }
 
-ion-card{
+ion-card {
   --ion-background-color: #363435;
 }
 
-.input{
+.input {
   background: white;
 }
 
-.center{
+.center {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@ ion-card{
   --background: #fbde3c;
 }*/
 
-ion-button{
+ion-button {
   background: #fdb302;
   color: #363435;
   font-weight: bold;
@@ -28,14 +28,15 @@ ion-button{
 
 
 
-.field{
+.field {
   --background: #363435;
 }
 
 
 
 ion-item.button {
-  --background-color: #4CAF50; /* Green */
+  --background-color: #4CAF50;
+  /* Green */
   --border: none;
   --color: white;
   --padding: 16px 32px;
@@ -58,6 +59,7 @@ ion-item.button:hover {
   background-color: #4CAF50;
   color: white;
 }
-ion-icon{
+
+ion-icon {
   margin-right: 8px;
 }

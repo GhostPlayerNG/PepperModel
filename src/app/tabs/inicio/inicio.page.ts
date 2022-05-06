@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Produtos, ProdutosService } from 'src/app/service/produtos.service';
+import { StorageService, user } from 'src/app/service/storage.service';
 
 
 @Component({
@@ -100,18 +101,28 @@ export class InicioPage implements OnInit {
 	  categoria: 'bebida'
     },
   ];
+  
+  user: user;
 
-  constructor(public nav: NavController, private service: ProdutosService, private route: Router) { }
+  constructor(public nav: NavController, private service: ProdutosService, private route: Router, private storage: StorageService) {   }
 
 
   ngOnInit() {
-    /*try {
-      this.service.read().subscribe(prod => {
-        this.produtos = prod;
-      })
-    }catch{
 
-    }*/
+    this.storage.getObject('usuario').then((data: any) => {
+      console.log(data);
+      if (data) {
+        this.user = data;
+        console.log(this.user);
+      }
+      else{
+        this.user.email = '';
+        this.user.senha = '';
+        this.user.nome = '';
+        this.user.telefone = '';
+        this.user.cpf = '';
+      }
+    });
   }
   doRefresh(event) {
 

@@ -4,22 +4,17 @@
       <img src="assets/icon_quadrado.jpg" alt="Logo" />
       <br><br>
       <ion-item class="input" color="white">
-        <ion-input placeholder="Usuário" [(ngModel)]="email"
-          ><ion-icon name="mail"></ion-icon>
+        <ion-input placeholder="Usuário" [(ngModel)]="email">
+          <ion-icon name="mail"></ion-icon>
         </ion-input>
       </ion-item>
       <ion-item class="input" color="white">
-        <ion-input placeholder="Senha" type="password" [(ngModel)]="senha"
-          ><ion-icon name="lock-closed"></ion-icon>
+        <ion-input placeholder="Senha" type="password" [(ngModel)]="senha">
+          <ion-icon name="lock-closed"></ion-icon>
         </ion-input>
       </ion-item>
-    
-      <ion-button expand="full" color="#fbde3c" (click)="login()"
-        >Logar</ion-button
-      >
-      <ion-button expand="full" color="#fbde3c" (click)="cadastrar()"
-        >Cadastrar</ion-button
-      >
+      <ion-button expand="full" color="#fbde3c" (click)="login()">Logar</ion-button>
+      <ion-button expand="full" color="#fbde3c" (click)="cadastrar()">Cadastrar</ion-button>
     </ion-card>
   </div>
 </ion-content>
