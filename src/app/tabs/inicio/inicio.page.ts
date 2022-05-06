@@ -108,21 +108,7 @@ export class InicioPage implements OnInit {
 
 
   ngOnInit() {
-
-    this.storage.getObject('usuario').then((data: any) => {
-      console.log(data);
-      if (data) {
-        this.user = data;
-        console.log(this.user);
-      }
-      else{
-        this.user.email = '';
-        this.user.senha = '';
-        this.user.nome = '';
-        this.user.telefone = '';
-        this.user.cpf = '';
-      }
-    });
+    this.GETUSER();    
   }
   doRefresh(event) {
 
@@ -131,6 +117,10 @@ export class InicioPage implements OnInit {
       event.target.complete();
     }, 1000);
 
+  }
+
+  async GETUSER(){
+    this.user = await this.storage.get('usuario');
   }
 
   segmentChanged(event: any){

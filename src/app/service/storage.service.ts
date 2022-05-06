@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage-angular";
+import { Observable } from "rxjs";
 export class user {
     nome: string;
     email: string;
@@ -43,19 +44,16 @@ export class StorageService {
         return this._storage?.get(key);
     }
 
-    public setUser(key: string, value: any) {
+    public set(key: string, value: any) {
         this._storage?.set(key, value);
     }
 
     public setObject(key: string, value: user) {
-        console.log(value);
-        console.log(JSON.stringify(value));
         this._storage?.set(key, value);
     }
 
     async getObject(key: string): Promise<{ value: any }> {
         const ret = await this._storage.get(key);
-        console.log(ret.value);
         return JSON.parse(ret.value);
     }
 
