@@ -60,10 +60,6 @@ const routes: Routes = [
     loadChildren: () => import('./perfil-pages/seguranca/seguranca.module').then(m => m.SegurancaPageModule)
   },
   {
-    path: 'eletrica',
-    loadChildren: () => import('./categorias/eletrica/eletrica.module').then(m => m.EletricaPageModule)
-  },
-  {
     path: 'produto/:id',
     loadChildren: () => import('./detalhes/produto/produto.module').then( m => m.ProdutoPageModule)
   },
@@ -107,13 +103,11 @@ const routes: Routes = [
   {
     path: 'senha',
     loadChildren: () => import('./perfil-pages/seguranca/senha-add/senha-add.module').then( m => m.SenhaAddPageModule)
-  },  {
+  },
+  {
     path: 'pedido/:id',
     loadChildren: () => import('./detalhes/pedidos/pedidos.module').then( m => m.PedidosPageModule)
   }
-
-
-
 ];
 
 @NgModule({
